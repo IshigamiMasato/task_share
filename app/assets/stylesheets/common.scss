@@ -6,6 +6,23 @@ header{
   box-sizing: border-box;
 }
 
+footer{
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  height: 200px;
+  padding-top: 60px;
+  width: 100%;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+li{
+  list-style: none;
+}
+
 .icon_image {
   width: 100px;
   height: 100px;
@@ -51,11 +68,6 @@ header{
   padding: 10px 0px;
   margin: 20px 0px;
   font-size: 16px;
-
-}
-
-li{
-  list-style: none;
 }
 
 .profile-image{
@@ -91,15 +103,7 @@ h5{
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-}
-
-footer{
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  height: 200px;
-  padding-top: 60px;
-  width: 100%;
+  padding-left: 10px;
 }
 
 .user .update-content span{
@@ -122,10 +126,6 @@ footer{
   margin-top: 30px;
 }
 
-.blue{
-  font-size: 30px;
-}
-
 label{
   display: block;
   margin-bottom: 10px;
@@ -134,7 +134,7 @@ label{
 .device{
   padding-top: 36px;
   font-size: 16px;
-  height: 80vh;
+  height: 100vh;
 }
 
 .container{
@@ -161,10 +161,6 @@ h2 {
 .device_inner{
   width: 360px;
   margin: 0px auto;
-}
-
-*, ::after, ::before {
-  box-sizing: border-box;
 }
 
 div.field{
@@ -214,4 +210,19 @@ div.actions{
 .device_frame p{
   font-size: 20px;
   font-weight: bold;
+}
+
+input[type="text"] {
+  width: 350px;
+  height: 40px;
+}
+
+input[type="password"] {
+  width: 350px;
+  height: 40px;
+}
+
+input[type="email"] {
+  width: 350px;
+  height: 40px;
 }
