@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <header>
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/" %>
+    </header>
     <%= yield %>
+    <footer>
+      <p>©︎ 2021 POTEPAN.INC. </p>
+    </footer>
   </body>
 </html>

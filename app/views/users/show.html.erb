@@ -1,0 +1,36 @@
+<div class="user">
+  <div class="row">
+    <div class="col-log-2 user-nav user-nav-pc d-lg-block d-none">
+      <ul>
+        <li><%= link_to "アカウント", user_path(@user), class: "link-edit", id: "link-edit" %></li>
+        <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit", id: "link-edit" %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-lg-10 user-view">
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>アカウント</h5>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <span>名前</span><p class="center"><%= @user.name %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+        <span>メールアドレス</span><p class="center"><%= @user.email %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= link_to "編集", edit_user_registration_path(@user), class: "form-control btn-primary link-edit", :style=>"text-align:center;"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag 'users/show' %>

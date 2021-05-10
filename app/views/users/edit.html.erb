@@ -1,0 +1,50 @@
+<div class="user">
+    <div class="row">
+      <div class="user-nav">
+        <ul>
+          <li><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
+          <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit" %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="user-view">
+      <div class="user-view-box">
+        <div class="update-content">
+          <div class="row">
+            <h5>プロフィール</h5>
+          </div>
+        </div>
+        <%= form_for @user do |f| %>
+          <div class="update-content">
+            <div class="profile-image">
+              <%= image_tag "#{@user.image}", class: "icon_image" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :image, "アイコン画像", class: "required-a" %>
+              <%= f.file_field :image %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :name, "名前", class: "required-a"%>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :profile, "自己紹介", class: "required-a" %>
+              <%= f.text_area :profile, size: "5x5", class: "form-control" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.submit "更新", class: "form-control btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
