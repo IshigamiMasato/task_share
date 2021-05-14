@@ -1,5 +1,14 @@
 class RoomsController < ApplicationController
   def index
+    if params[:area] != nil
+      area = params[:area]
+      @rooms = Room.where('address LIKE?', "%#{area}%")
+      @number_of_rooms = Room.where('address LIKE?', "%#{area}%").count
+    elsif params[:keyword] != nil
+      keyword = params[:keyword]
+      @rooms = Room.where(['name LIKE ? OR description LIKE ?', "%#{keyword}%", "%#{keyword}%"])
+      @number_of_rooms = Room.where(['name LIKE ? OR description LIKE ?', "%#{keyword}%", "%#{keyword}%"]).count
+    end
   end
 
   def new

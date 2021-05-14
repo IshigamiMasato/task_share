@@ -1,14 +1,22 @@
-<div class="user">
-    <div class="row">
-      <div class="user-nav">
+<div class="container-fluid user">
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      <div class="user-nav user-nav-pc">
         <ul>
-          <li><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
+          <li class="mb-4"><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
           <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit" %></li>
         </ul>
       </div>
     </div>
-
-    <div class="user-view">
+    <div class="col-lg-2 d-lg-none">
+      <div class="user-nav user-nav-mobile">
+        <ul>
+          <li class="me-4"><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
+          <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit" %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-10 user-view">
       <div class="user-view-box">
         <div class="update-content">
           <div class="row">
@@ -17,34 +25,53 @@
         </div>
         <%= form_for @user do |f| %>
           <div class="update-content">
-            <div class="profile-image">
-              <%= image_tag "#{@user.image}", class: "icon_image" %>
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="icon-box">
+                  <%= image_tag ("#{@user.image}"), class: "host-icon" %>
+                </div>
+              </div>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.label :image, "アイコン画像", class: "required-a" %>
-              <%= f.file_field :image %>
+              <div class="col-md-3 required-a">
+                <%= f.label :image, "アイコン画像" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.file_field :image %>
+              </div>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.label :name, "名前", class: "required-a" %>
-              <%= f.text_field :name, class: "form-control", placeholder: "ユーザー名" %>
+              <div class="col-md-3 required-a">
+                <%= f.label :name, "名前" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.label :profile, "自己紹介", class: "required-a" %>
-              <%= f.text_area :profile, size: "5x5", class: "form-control", placeholder: "自己紹介を入力" %>
+              <div class="col-md-3 required-a">
+                <%= f.label :profile, "自己紹介" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_area :profile, class: "form-control" %>
+              </div>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.submit "更新", class: "form-control btn-primary" %>
+              <div class="col-md-2 mx-3">
+                <%= f.submit "更新", class: "btn btn-primary form-control" %>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+</div>

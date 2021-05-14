@@ -1,2 +1,29 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<div class="container-fluid room">
+  <div class="container">
+    <h4 class="mb-4"><%= "検索結果:#{@number_of_rooms}件"%></h4>
+    <div class="row">
+      <% @rooms.each do |room| %>
+        <div class="col-sm-6 col-lg-4 col-xl-3">
+          <%= link_to user_path(room.user_id), {class: "link-edit2"} do %>
+            <div class="room-frame-inner border mb-3">
+              <div class="room-image-out">
+                <%= image_tag "#{room.image}", class: "room-image" %>
+              </div>
+              <div class="room-profile">
+                <p class="room-profile-name">
+                  <%= room.name %>
+                </p>
+                <p class="room-profile-city">
+                  <%= room.address %>
+                </p>
+                <p class="room-profile-price price-icon">
+                  <%= room.price %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

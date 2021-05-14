@@ -1,63 +1,91 @@
-<div class="user">
+<div class="container-fluid room-new">
   <div class="row">
-    <div class="user-nav">
-      <ul>
-        <li><%= link_to "基本情報", new_room_path, class: "link-edit" %></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="user-view">
-    <div class="user-view-box">
-      <div class="update-content">
-        <div class="row">
-          <h5>ルーム情報登録</h5>
-        </div>
+    <div class="col-lg-2 d-lg-block d-none">
+      <div class="room-nav room-nav-pc">
+        <ul>
+          <li class="active">
+            <%= link_to "基本情報", new_room_path, class: "link-edit" %>
+          </li>
+        </ul>
       </div>
-      <%= form_for @room do |f| %>
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :name, "ルーム名", class: "required-a" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "ルーム名を入力" %>
+    </div>
+    <div class="col-lg-2 d-lg-none d-block">
+      <div class="room-nav room-nav-mobile">
+        <ul>
+          <li class="active">
+            <%= link_to "基本情報", new_room_path, class: "link-edit" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-10 room-view">
+      <div class="room-view-box">
+        <%= form_for @room do |f| %>
+          <div class="update-content">
+            <div class="row">
+              <h5>ルーム情報登録</h5>
+            </div>
           </div>
-        </div>
-
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :description, "ルーム紹介", class: "required-a" %>
-            <%= f.text_area :description, size: "5x5", class: "form-control", placeholder: "ルーム説明を入力" %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3 required-a">
+                <%= f.label :name, "ルーム名" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_field :name, class: "form-control", placeholder: "ルーム名を入力" %>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :price, "料金", class: "required-a" %>
-            <%= f.text_field :price, class: "form-control", placeholder: "1日あたりの料金を入力" %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3 required-a">
+                <%= f.label :description, "ルーム紹介" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_area :description, size: "5x5", class: "form-control", placeholder: "ルーム説明を入力" %>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :address, "住所", class: "required-a" %>
-            <%= f.text_field :address, class: "form-control", placeholder: "住所を入力" %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3 required-a">
+                <%= f.label :price, "料金" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_field :price, class: "form-control", placeholder: "1日あたりの料金を入力" %>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="update-content">
-          <div class="row">
-            <%= f.label :image, "ルーム画像", class: "required-a" %>
-            <%= f.file_field :image %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3 required-a">
+                <%= f.label :address, "住所" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.text_field :address, class: "form-control", placeholder: "住所を入力" %>
+              </div>
+            </div>
           </div>
-        </div>
-          
-        <%= f.hidden_field :user_id, value: current_user.id %>
-
-        <div class="update-content">
-          <div class="row">
-            <%= f.submit "登録", class: "form-control btn-primary" %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-3 required-a">
+                <%= f.label :image, "ルーム画像" %>
+              </div>
+              <div class="col-md-9 mb-4">
+                <%= f.file_field :image %>
+              </div>
+            </div>
           </div>
-        </div>
-      <% end %>
+          <div class="update-content">
+            <div class="row">
+              <div class="col-md-2 mx-3">
+                <%= f.submit "登録", class: "btn, btn-primary form-control" %>
+              </div>
+            </div>
+          </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

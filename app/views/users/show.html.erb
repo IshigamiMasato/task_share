@@ -1,36 +1,56 @@
-<div class="user">
+<div class="container-fluid user">
   <div class="row">
-    <div class="user-nav">
-      <ul>
-        <li><%= link_to "アカウント", user_path(@user), class: "link-edit", id: "link-edit" %></li>
-        <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit", id: "link-edit" %></li>
-      </ul>
+    <div class="col-lg-2 d-lg-block d-none">
+      <div class="user-nav user-nav-pc">
+        <ul>
+          <li class="mb-4"><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
+          <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit" %></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-  <div class="user-view">
-    <div class="user-view-box">
-      <div class="update-content">
-        <div class="row">
-          <h5>アカウント</h5>
-        </div>
+    <div class="col-lg-2 d-lg-none">
+      <div class="user-nav user-nav-mobile">
+        <ul>
+          <li class="me-4"><%= link_to "アカウント", user_path(@user), class: "link-edit" %></li>
+          <li><%= link_to "プロフィール", edit_user_path(@user), class: "link-edit" %></li>
+        </ul>
       </div>
-      <div class="update-content">
-        <div class="row">
-          <span>名前</span><p class="center"><%= @user.name %></p>
+    </div>
+    <div class="col-lg-10 user-view">
+      <div class="user-view-box">
+        <div class="update-content"> 
+          <div class="row">
+            <h5>アカウント</h5>
+          </div>     
         </div>
-      </div>
-      <div class="update-content">
-        <div class="row">
-        <span>メールアドレス</span><p class="center"><%= @user.email %></p>
+        <div class="update-content">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="name">名前</label>
+            </div>
+            <div class="col-md-9">
+              <%= @user.name %>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="update-content">
-        <div class="row">
-          <%= link_to "編集", edit_user_registration_path(@user), class: "form-control btn-primary link-edit", :style=>"text-align:center;"%>
+        <div class="update-content">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="email">メールアドレス</label>
+            </div>
+            <div class="col-md-9">
+              <%= @user.email %>
+            </div>
+          </div>
+        </div>
+        <div class="update-content">
+          <div class="row">
+            <div class="col-md-2">
+              <%= link_to "編集", edit_user_registration_path(@user), class: "form-control btn btn-primary link-edit"%>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= javascript_pack_tag 'users/show' %>

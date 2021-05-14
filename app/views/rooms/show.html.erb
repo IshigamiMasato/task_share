@@ -1,8 +1,9 @@
-<div class="container-fiuld room-posts">
+<div class="container-fluid room-posts">
+<div class="container">
   <h4 class="pb-4">登録済みルーム一覧</h4>
-  <table>
+  <table class="table table-striped">
     <thead>
-      <tr>
+      <tr class="border-top">
         <th>ルーム画像</th>
         <th>ルーム名</th>
         <th>ルーム紹介</th>
@@ -12,14 +13,15 @@
     </thead>
     <tbody>
       <% @rooms.each do |room| %>
-        <tr>
-          <td><%= link_to image_tag("#{room.image}", class: "room-image"), "/" %></td>
+        <tr valign="middle">
+          <td><%= link_to image_tag("#{room.image}", class: "room-posts-image"), "/" %></td>
           <td class="posts-name"><%= link_to "#{room.name}", "/" %></td>
-          <td class="posts-description"><%= room.description %></td>
+          <td class="posts-contents"><%= room.description %></td>
           <td class="price-icon"><%= room.price %></td>
-          <td class="date-created"><%= room.created_at %></td>
+          <td><%= room.created_at %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  </div>
 </div>
