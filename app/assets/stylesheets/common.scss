@@ -53,25 +53,28 @@ tr{
 //ヘッダーの設定
 .header{
     width: 100%;
-    height: 70px;
+    height: 80px;
     padding: 4px 30px;
-    background-color: #000000;
 }
 
-.header-left-nav{
+.header-left-nav {
     display: flex;
     align-items: center;
+    float: left;
 }
 
-.header-left-nav .form-control {
-    width: 180px;
-    display: inline-block;
-    position: relative;
-    border-radius: 2px;
-    padding-left: 30px;
+.header-right-nav {
+    float: right;
 }
 
-//フッターの設定
+.nav-item{
+    margin-top: 12px;
+}
+
+.sub-nav{
+    text-align: right;
+}
+
 .footer{
     position: absolute;
     bottom: 0;
@@ -81,6 +84,22 @@ tr{
     height: 180px;
     text-align: center;
     padding-top: 90px;
+}
+
+.nav-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.nav-user-name{
+    color: #fff;
+}
+
+.link-edit{
+    text-decoration: none;
+    color: #111;
 }
 
 //トップページの設定

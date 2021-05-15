@@ -1,0 +1,71 @@
+<header class="header bg-dark">
+  <div class="header-inner clearfix">
+    <div class="header-left-nav">
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/" %>
+      <%= form_tag rooms_path, method: :get do %>
+        <div class="header-serch d-lg-inline-block d-none">
+          <%= text_field_tag :area, "", {class: "form-control", placeholder: "エリア"} %>
+          <% submit_tag "area" %>
+        </div>
+      <% end %>
+      <%= form_tag rooms_path, method: :get do %>
+        <div class="header-serch d-lg-inline-block d-none">
+          <%= text_field_tag :keyword, "", {class: "form-control", placeholder: "キーワード"} %>
+          <% submit_tag "keyword" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="header-right-nav d-sm-block d-none">
+      <% if user_signed_in? %>
+        <div class="d-inline-block nav-user-name">
+          <%= current_user.name %>
+        </div>
+        <div class="btn-group d-inline-block">
+          <button class="btn btn-dark dropdown-toggle" type="button", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="icon-box">
+              <%= image_tag ("#{current_user.image}"), class: "nav-icon" %>
+            </div>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <button class="dropdown-item" type="button"><%= link_to "ルーム登録", new_room_path, class: "link-edit" %></button>
+            <button class="dropdown-item" type="button"><%= link_to "登録済みルーム一覧", room_path(current_user.id), class: "link-edit" %></button>
+            <button class="dropdown-item" type="button"><%= link_to "設定", user_path(current_user.id), class: "link-edit" %></button>
+            <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :DELETE, class: "link-edit" %></button>
+          </div>
+        </div>
+      <% else %>
+        <div class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+          <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+<div class="container p-2 d-sm-none d-block bg-light">
+  <div class="sub-nav ml-5">
+    <% if user_signed_in? %>
+      <div class="d-inline-block nav-user-name">
+        <%= current_user.name %>
+      </div>
+      <div class="dropdown d-inline-block">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="icon-box">
+            <%= image_tag ("#{current_user.image}"), class: "nav-icon" %>
+          </div>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" >
+          <ul>
+            <li><%= link_to "ルーム登録", new_room_path, class: "link-edit" %></li>
+            <li><%= link_to "登録済みルーム一覧", room_path(current_user.id), class: "link-edit" %></li>
+            <li><%= link_to "設定", user_path(current_user.id), class: "link-edit" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :DELETE, class: "link-edit" %></li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-sm" %>
+      <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  </div>
+</div>
