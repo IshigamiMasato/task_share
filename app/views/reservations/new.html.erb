@@ -5,7 +5,11 @@
       <%= image_tag ("#{@room.image}"), class: "room-show-image" %>
       <div class="room-show-detaile">
         <div class="room-show-detaile-icon">
-          <%= image_tag ("#{@user.image}"), class: "host-icon" %>
+          <% if @user.image.blank? %>
+            <%= image_tag "default.png", class: "host-icon" %>
+          <% else %>
+            <%= image_tag "#{@user.image}", class: "host-icon" %>
+          <% end %>
         </div>
         <div class="room-show-profile">
           <p class="room-show-profile-name">

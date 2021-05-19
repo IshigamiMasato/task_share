@@ -75,6 +75,8 @@ th{
 
 .error-frame{
     background:#FFEBE8; 
+    border: 1px solid #990000;
+    border-radius: 5px;
 }
 
 //ヘッダーの設定
@@ -129,6 +131,11 @@ th{
     color: #111;
 }
 
+.font-awesome{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
 //トップページの設定
 .top .top-main{
     background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
@@ -159,7 +166,9 @@ th{
     letter-spacing: 1px;
 }
 
-label{
+.top label{
+    font-size: 13px;
+    font-weight: normal;
     margin-bottom: .5rem;
 }
 
@@ -275,6 +284,11 @@ div.field, div.actions {
     background-color: #fff;
     border: 1px solid #eaedef;
     margin: 30px auto;
+}
+
+.edit_user label{
+    font-size: 16px;
+    font-weight: normal;
 }
 
 //ルーム登録・登録済みルーム一覧画面
@@ -455,4 +469,9 @@ div.field, div.actions {
 
 .reservations table{
     min-width: 800px;
+}
+
+.reservations table tbody .posts-name{
+    font-size: 18px;
+    font-weight: bold;
 }
