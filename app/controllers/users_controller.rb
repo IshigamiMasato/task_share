@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:name, :image, :profile))
-      flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
+      flash[:notice] = "#{@user.name}さんの情報を更新しました"
       redirect_to edit_user_path
     else
       render "edit"

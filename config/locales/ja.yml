@@ -1,0 +1,19 @@
+ja:
+      activerecord:
+        models:
+          room: 部屋
+        attributes:
+          room:
+            name: ルーム名
+            address: 住所
+            price: 料金
+            description: ルーム紹介
+ja:
+      activerecord:
+        models:
+          user: ユーザー
+        attributes:
+          user:
+            name: 名前
+            email: メールアドレス
+            password: パスワード

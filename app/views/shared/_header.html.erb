@@ -23,12 +23,17 @@
         <div class="btn-group d-inline-block">
           <button class="btn btn-dark dropdown-toggle" type="button", data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="icon-box">
-              <%= image_tag ("#{current_user.image}"), class: "nav-icon" %>
+              <% if current_user.image.blank? %>
+                <%= image_tag "default.png", class: "nav-icon" %>
+              <% else %>
+                <%= image_tag "#{current_user.image}", class: "nav-icon" %>
+              <% end %>
             </div>
           </button>
           <div class="dropdown-menu dropdown-menu-right" >
             <button class="dropdown-item" type="button"><%= link_to "ルーム登録", new_room_path, class: "link-edit" %></button>
             <button class="dropdown-item" type="button"><%= link_to "登録済みルーム一覧", room_path(current_user.id), class: "link-edit" %></button>
+            <button class="dropdown-item" type="button"><%= link_to "予約済みルーム一覧", reservations_show_path, class: "link-edit" %></button>
             <button class="dropdown-item" type="button"><%= link_to "設定", user_path(current_user.id), class: "link-edit" %></button>
             <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :DELETE, class: "link-edit" %></button>
           </div>
@@ -51,15 +56,20 @@
       <div class="dropdown d-inline-block">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="icon-box">
-            <%= image_tag ("#{current_user.image}"), class: "nav-icon" %>
+            <% if current_user.image.blank? %>
+              <%= image_tag "default.png", class: "nav-icon" %>
+            <% else %>
+              <%= image_tag "#{current_user.image}", class: "nav-icon" %>
+            <% end %>
           </div>
         </button>
         <div class="dropdown-menu dropdown-menu-right" >
           <ul>
-            <li><%= link_to "ルーム登録", new_room_path, class: "link-edit" %></li>
-            <li><%= link_to "登録済みルーム一覧", room_path(current_user.id), class: "link-edit" %></li>
-            <li><%= link_to "設定", user_path(current_user.id), class: "link-edit" %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :DELETE, class: "link-edit" %></li>
+          <button class="dropdown-item" type="button"><%= link_to "ルーム登録", new_room_path, class: "link-edit" %></button>
+          <button class="dropdown-item" type="button"><%= link_to "登録済みルーム一覧", room_path(current_user.id), class: "link-edit" %></button>
+          <button class="dropdown-item" type="button"><%= link_to "予約済みルーム一覧", reservations_show_path, class: "link-edit" %></button>
+          <button class="dropdown-item" type="button"><%= link_to "設定", user_path(current_user.id), class: "link-edit" %></button>
+          <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :DELETE, class: "link-edit" %></button>
           </ul>
         </div>
       </div>

@@ -1,0 +1,47 @@
+<div class="container reservations-new">
+  <div class="row">
+    <div class="col-6 offset-3">
+	  <div class="reservations-nav">
+	    <h4 class="reservations-new-check-content">
+		  予約内容確認
+		</h4>
+		<h5 class="price-icon">
+		  <%= "#{@room.price}/日" %>
+		</h5>
+		<div class="reservations-new-date-select">
+		  <label>開始日</label>
+		  <div class="confirm-start-date mb-4">
+		    <%= @reservation.start_date.strftime("%Y年 %m月 %d日") %>
+		  </div>
+		  <label>終了日</label>
+		  <div class="confirm-end-date mb-4">
+		    <%= @reservation.end_date.strftime("%Y年 %m月 %d日") %>
+		  </div>
+		  <div class="confirm-day-count mb-4">
+		    <%= "使用日数：#{@day_count.to_i}日" %>
+		  </div>
+		  <div class="confirm-people-count mb-4">
+		    <%= "人数：#{@reservation.people_count}人" %>
+		  </div>
+		  <label>合計金額</labal>
+		  <div class="confirm-price price-icon mb-5">
+		    <%= "#{@reservation.price}" %>
+		  </div>
+		  <p class="reservations-new-check-content">
+		    上記内容でよろしければ「予約を確定」を押してください
+		  </p>
+		  <%= form_for @reservation, method: :post, url: reservations_complete_path do |f| %>
+			<%= f.hidden_field :start_date, :value => @reservation.start_date %>
+			<%= f.hidden_field :end_date, :value => @reservation.end_date %>
+			<%= f.hidden_field :people_count, :value => @reservation.people_count %>
+			<%= f.hidden_field :price, :value => @reservation.price %>
+			<%= f.hidden_field :room_id, :value => @reservation.room_id %>
+			<%= f.hidden_field :user_id, :value => @reservation.user_id %>
+			<%= f.submit '予約を確定', class: "form-control btn btn-primary mb-3" %>
+		  <% end %>
+		  <%= link_to "ルーム詳細に戻る", reservations_new_path(room_id: @room.id), class: "btn btn-secondary w-100" %>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>

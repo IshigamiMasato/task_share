@@ -18,7 +18,7 @@
           <td class="posts-name"><%= link_to "#{room.name}", "/" %></td>
           <td class="posts-contents"><%= room.description %></td>
           <td class="price-icon"><%= room.price %></td>
-          <td><%= room.created_at %></td>
+          <td><%= room.created_at.to_s(:datetime_jp) %></td>
         </tr>
       <% end %>
     </tbody>

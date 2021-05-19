@@ -4,7 +4,7 @@
     <div class="row">
       <% @rooms.each do |room| %>
         <div class="col-sm-6 col-lg-4 col-xl-3">
-          <%= link_to user_path(room.user_id), {class: "link-edit"} do %>
+          <%= link_to reservations_new_path(room_id: room.id), {class: "link-edit"} do %>
             <div class="room-frame-inner border mb-3">
               <div class="room-image-out">
                 <%= image_tag "#{room.image}", class: "room-image" %>
