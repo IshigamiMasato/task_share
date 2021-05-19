@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, :only => [:show, :edit, :update]
-  resources :rooms
+  resources :rooms, :only => [:index, :new, :create, :show]
 
   get 'reservations/new'
   post 'reservations/confirm'

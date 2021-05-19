@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
       end
     else
       flash[:alert] = "ログインしてください"
-      redirect_to new_user_session_path
+      render new_user_session_path
     end
   end
 
